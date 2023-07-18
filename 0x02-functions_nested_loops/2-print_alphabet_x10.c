@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * pr_Alphabetx10 -prints 10 times the alphabet.
+ * print_alphabet_x10 - prints 10 times the alphabet.
  */
-void pr_Alphabetx10(void)
+void print_alphabet_x10(void)
 {
 	int i = 0;
 	char l;

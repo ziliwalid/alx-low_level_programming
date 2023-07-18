@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * pr_Alphabet - prints the entire alphabet
+ * print_alphabet - prints the entire alphabet
  */
-void pr_Alphabet(void)
+void print_alphabet(void)
 {
 	char letter;
 
