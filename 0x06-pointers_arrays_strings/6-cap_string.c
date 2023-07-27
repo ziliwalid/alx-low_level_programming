@@ -1,26 +1,31 @@
 #include "main.h"
 
 /**
- * cap_string - capitalizes all words in a string
+ * cap_string - does magic
  * @s: string
- * Return: addr
+ * Return: add of s
  */
 char *cap_string(char *s)
 {
-	int i, is_word_start = 1;
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	for (i = 0; s[i]; i++)
+	while (*(s + i))
 	{
-		if (isalpha(s[i]))
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			if (is_word_start)
-				s[i] -= 'a' - 'A';
-			is_word_start = 0;
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
 		}
-		else
-			is_word_start = 1;
+		i++;
 	}
-
 	return (s);
 }
-
