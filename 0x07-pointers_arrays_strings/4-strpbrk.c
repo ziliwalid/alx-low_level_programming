@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strpbrk - function that searches a string 
+ * _strpbrk - function that searches a string
  * @s: first occurrence in the string
  * @accept: same byte
  * Return: a pointer to the byte
