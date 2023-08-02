@@ -13,7 +13,7 @@ int PrimeChecker(int x, int y)
 	else if (x > y / 2)
 		return (1);
 	else
-		return (check(x + 1, b));
+		return (PrimeChecker(x + 1, b));
 }
 
 /**
