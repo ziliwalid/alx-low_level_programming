@@ -17,7 +17,7 @@ int _strlen_recursion(char *s)
  * @j: int
  * Return: int
  */
-int pal_PalChecker(char *s, int i, int j)
+int PalChecker(char *s, int i, int j)
 {
 	if (s[i] == s[j])
 		if (i > j / 2)
