@@ -2,8 +2,8 @@
 
 /**
  * PrimeChecker - checks if number is prime
- * @a: int
- * @b: int
+ * @x: int
+ * @y: int
  * Return: int
  */
 int PrimeChecker(int x, int y)
