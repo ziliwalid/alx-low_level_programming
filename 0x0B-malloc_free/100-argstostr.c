@@ -2,15 +2,19 @@
 #include <stdlib.h>
 
 /**
- * argstostr - concatenates all the arguments of your program
- * @ac: param 1
- * @av: param 2
+ * argstostr - concatenates all the arguments of your program.
+ * @ac: param
+ * @av: param
  * Return: str
  */
 char *argstostr(int ac, char **av)
 {
-	char *str, *ptr;
+	char *str;
+	char *s;
+
 	int i;
+	int j;
+	int tmp;
 	int len = 0;
 
 	if (ac == 0 || av == NULL)
@@ -19,18 +23,33 @@ char *argstostr(int ac, char **av)
 	}
 	for (i = 0; i < ac; i++)
 	{
-		len += strlen(av[i]) + 1;
+		s = av[i];
+		j = 0;
+
+		while (s[j++])
+		{
+			len++;
+		}
+		len++;
 	}
-	str = (char *)malloc(sizeof(char) * len);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
-		return (NULL);
-	ptr = str;
-	for (i = 0; i < ac; i++)
 	{
-		strcpy(ptr, av[i]);
-		ptr += strlen(av[i]);
-		*ptr++ = '\n';
+		return (NULL);
 	}
-	*ptr = '\0';
+	for (i = 0, j = 0; i < ac && j < len; i++)
+	{
+		s = av[i];
+		tmp = 0;
+
+		while (s[tmp])
+		{
+			str[j] = s[tmp];
+			tmp++;
+			j++;
+		}
+		str[j++] = '\n';
+	}
+	str[j] = '\0';
 	return (str);
 }
