@@ -1,38 +1,47 @@
+#include <stdlib.h>
 #include "dog.h"
-#include <string.h>
+
 /**
- * new_dog - creates a new pokedog
+ * new_dog - creates a new PokeDog
  * @name: name
  * @age: age
  * @owner: owner
- * Return: pointer to brand new pokedog
+ * Return: pointer
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *tmpN;/*tmpN: temporary name | tmpO: temporary owner */
-	char *tmpO; 
-	dog_t *new_PokeDog; /*poke ref to pokemon*/
+	unsigned int name_len, owner_len, i;
+	dog_t *newDog;
 
-	tmpN = malloc(sizeof(*name) * (strlen(name) + 1));
-	tmpO = malloc(sizeof(*owner) * (strlen(owner) + 1));
-	new_PokeDog = malloc(sizeof(dog_t));
-
-	if (tmpN && tmpO && new_PokeDog)
+	if (name == NULL || owner == NULL)
+		return (NULL);
+	newDog = malloc(sizeof(dog_t));
+	if (newDog == NULL)
+		return (NULL);
+	for (name_len = 0; name[name_len]; name_len++)
+		;
+	name_len++;
+	newDog->name = malloc(name_len * sizeof(char));
+	if (newDog->name == NULL)
 	{
-		strcpy(tmpN, name);
-		strcpy(tmpO, owner);
-		new_PokeDog->name = tmpN;
-		new_PokeDog->age = age;
-		new_PokeDog->owner = tmpO;
-	}
-	else
-	{
-		free(tmpN); /*deallocating*/
-		free(tmpO);/*deallocating*/
-		free(new_PokeDog);/*deallocating*/
+		free(newDog);
 		return (NULL);
 	}
-	return (new_PokeDog);
+	for (i = 0; i < name_len; i++)
+		newDog->name[i] = name[i];
+	newDog->age = age;
+	for (owner_len = 0; owner[owner_len]; owner_len++)
+		;
+	owner_len++;
+	newDog->owner = malloc(owner_len * sizeof(char));
+	if (newDog->owner == NULL)
+	{
+		free(newDog->name);
+		free(newDog);
+		return (NULL);
+	}
+	for (i = 0; i < owner_len; i++)
+		newDog->owner[i] = owner[i];
+	return (newDog);
 }
 
-/*people from other cohorts are nice for explaining this :D*/
