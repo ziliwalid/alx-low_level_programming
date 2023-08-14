@@ -1,7 +1,7 @@
 #include "dog.h"
 #include <string.h>
 /**
- * new_dog - creates a new dog
+ * new_dog - creates a new pokedog
  * @name: name
  * @age: age
  * @owner: owner
@@ -9,7 +9,8 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *tmpN, *tmpO; /*tmpN: temporary name | tmpO: temporary owner */
+	char *tmpN;/*tmpN: temporary name | tmpO: temporary owner */
+	char *tmpO; 
 	dog_t *new_PokeDog; /*poke ref to pokemon*/
 
 	tmpN = malloc(sizeof(*name) * (strlen(name) + 1));
