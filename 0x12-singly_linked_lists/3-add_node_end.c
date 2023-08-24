@@ -1,19 +1,15 @@
 #include "lists.h"
-
 /**
- * lengthSTR - gets the length of a string
+ * lengthSTR  - gets the length of a string
  * @c : char pram
- * Return: length
+ * Return: len string
  */
-
-int lengthSTR(const char *c)
+unsigned int lengthSTR (char *str)
 {
-	int i = 0;
+	unsigned int i;
 
-	while (c[i] != '\0')
-	{
-		i++;
-	}
+	for (i = 0; str[i]; i++)
+		;
 	return (i);
 }
 /**
@@ -37,7 +33,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		free(new);
 		return (NULL);
 	}
-	new->len = _lengthSTR(new->str);
+	new->len = lengthSTR(new->str);
 	new->next = NULL;
 	if (*head == NULL)
 	{
