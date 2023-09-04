@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * strlen - does some counting
+ * _strlen - does some counting
  * @str: str param
  * Return: string len
  */
-size_t strlen(char *str)
+size_t _strlen(char *str)
 {
 	size_t i;
 
@@ -35,7 +35,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 	if (text_content != NULL)
 	{
-		len = write(fd, text_content, strlen(text_content));
+		len = write(fd, text_content, _strlen(text_content));
 	}
 	close(fd);
 	if (len == -1)
