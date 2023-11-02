@@ -13,7 +13,7 @@ unsigned long int hash_djb2(const unsigned char *str)
 	fishle = 5381;
 	while ((c = *str++))
 	{
-		fishle = ((fishle << 5) + fishle) + c; 
+		fishle = ((fishle << 5) + fishle) + c;
 	}
 	return (fishle);
 }
